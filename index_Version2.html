@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Chill Stories</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Chill Stories Logo" />
+      <span class="site-title">Chill Stories</span>
+    </div>
+    <nav class="nav">
+      <a href="#library">Tủ truyện</a>
+      <a href="#" id="loginBtn">Đăng nhập</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="intro-inner">
+        <img src="assets/cover-sample.jpg" alt="Cover Sample" class="cover-img" />
+        <div class="intro-text">
+          <h1>Thư giãn cùng những câu chuyện hay</h1>
+          <p>Khám phá kho truyện đa dạng, lưu lại truyện bạn thích và chia sẻ với bạn bè.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="library" id="library">
+      <h2 class="section-title">TỦ TRUYỆN</h2>
+      <button id="addStoryBtn" class="btn" style="margin:20px 0;">Thêm truyện mới</button>
+      <div id="storyGrid" class="grid">
+        <!-- Sample story -->
+        <article class="card" data-title="Người chơi thử nghiệm" data-genre="Hệ thống">
+          <img src="assets/cover-sample.jpg" alt="Bìa truyện" style="width:100%;height:auto;">
+          <div class="card-body">
+            <h3 class="title">Người chơi thử nghiệm</h3>
+            <p class="meta">Thể loại: Hệ thống • Tác giả: Lâm Thiển San</p>
+            <p class="desc">Một câu chuyện hệ thống hấp dẫn với nhân vật chính phi thường.</p>
+            <div class="card-actions">
+              <a href="#" class="btn read" 
+                 data-chapter-index="1" data-chapter-title="Chương 1"
+                 data-chapter-content="Đây là nội dung chương 1.">Đọc chương 1</a>
+              <a href="#" class="btn read" 
+                 data-chapter-index="2" data-chapter-title="Chương 2"
+                 data-chapter-content="Đây là nội dung chương 2.">Đọc chương 2</a>
+              <a href="#" class="btn read" 
+                 data-chapter-index="3" data-chapter-title="Chương 3"
+                 data-chapter-content="Đây là nội dung chương 3.">Đọc chương 3</a>
+              <button class="btn save" data-action="save">Lưu</button>
+            </div>
+          </div>
+        </article>
+        <!-- Add more stories as needed -->
+      </div>
+    </section>
+
+    <section id="blankArea" class="blank-area"></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="bookmark">
+        <span class="marker">TỦ TRUYỆN</span>
+        <div class="line"></div>
+      </div>
+      <div class="footer-actions">
+        <button id="prevBtn" class="icon-btn">‹</button>
+        <button id="nextBtn" class="icon-btn">›</button>
+        <a href="#" class="share">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LOGIN / REGISTER MODAL -->
+  <div id="authModal" class="modal hidden">
+    <div class="modal-inner">
+      <button id="closeAuth" class="close-btn">✕</button>
+      <h3 id="authTitle">Đăng nhập hoặc Đăng ký</h3>
+      <form id="authForm">
+        <input type="text" placeholder="Tên đăng nhập" required>
+        <input type="password" placeholder="Mật khẩu" required>
+        <button type="submit" class="btn">Xác nhận</button>
+      </form>
+      <p class="switch-auth">Bạn chưa có tài khoản? <a href="#" id="registerLink">Đăng ký</a></p>
+    </div>
+  </div>
+
+  <!-- MODAL TẠO TRUYỆN MỚI -->
+  <div id="addStoryModal" class="modal hidden">
+    <div class="modal-inner">
+      <button id="closeAddStory" class="close-btn">✕</button>
+      <h3>Thêm truyện mới</h3>
+      <form id="addStoryForm">
+        <input type="text" id="newTitle" placeholder="Tên truyện" required>
+        <textarea id="newDesc" placeholder="Giới thiệu truyện" required></textarea>
+        <input type="text" id="newImg" placeholder="Link ảnh bìa (tùy chọn)">
+        <input type="text" id="newGenre" placeholder="Thể loại" required>
+        <input type="text" id="newAuthor" placeholder="Tác giả" required>
+        <hr>
+        <h4>Thêm chương đầu tiên</h4>
+        <input type="text" id="chapterTitle" placeholder="Tên chương" required>
+        <textarea id="chapterContent" placeholder="Nội dung chương" required></textarea>
+        <button type="submit" class="btn">Thêm truyện</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL NHẬP MÃ KIỂU SHOPPE/TIKTOK -->
+  <div id="codeModal" class="modal hidden">
+    <div class="modal-inner">
+      <button id="closeCodeModal" class="close-btn">✕</button>
+      <h3>Nhập mã truy cập để đọc chương</h3>
+      <input type="text" id="storyCodeInput" placeholder="Nhập mã...">
+      <button id="confirmCodeBtn" class="btn">Xác nhận</button>
+      <p id="codeStatus" style="color: red; margin-top: 10px;"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
